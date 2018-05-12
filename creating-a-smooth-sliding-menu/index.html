@@ -54,6 +54,7 @@
       /* Remember that translate3d pushes the animation rendering work to the GPU. This can be expensive if the CPU is fine with handling the animation workload, with little to no delay */
       transition: transform .3s cubic-bezier(0, .52, 0, 1);
       overflow: scroll;
+      z-index: 1000;
     }
 
     #flyoutMenu h2 a {
