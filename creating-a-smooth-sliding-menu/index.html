@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
   <title>Sliding Menu</title>
 
@@ -22,7 +22,7 @@
 
     #roundButton {
       background-color: #96D9FF;
-      nargub0bittin: 20px;
+      margin-bottom: 20px;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -64,6 +64,10 @@
     #flyoutMenu h2 a:hover {
       text-decoration: underline;
     }
+
+    #flyoutMenu.show {
+      transform: translate3d(0vw, 0, 0);
+    }
   </style>
 </head>
 
@@ -90,7 +94,20 @@
   </div>
 
   <script>
+    var roundButton = document.querySelector("#roundButton");
+    roundButton.addEventListener("click", showMenu, false);
 
+    var flyoutMenu = document.querySelector("#flyoutMenu");
+    flyoutMenu.addEventListener("click", hideMenu, false);
+
+    function showMenu(e) {
+      flyoutMenu.classList.add("show");
+    }
+
+    function hideMenu(e) {
+      flyoutMenu.classList.remove("show");
+      e.stopPropagation();
+    }
   </script>
 </body>
 
