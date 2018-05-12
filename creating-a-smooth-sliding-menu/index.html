@@ -42,10 +42,39 @@
       border-color: #003557;
       background-color: #FFF;
     }
+
+    #flyoutMenu {
+      width: 100vw;
+      height: 100vh;
+      background-color: #FFE600;
+      position: fixed; /* Ensure the normal layout rules no longer apply to it. */
+      top: 0;
+      left: 0;
+      transform: translate3d(-100vw, 0, 0); /* The negative value with `vw` ensures we shift the horizontal menu left by the browser width */
+      /* Remember that translate3d pushes the animation rendering work to the GPU. This can be expensive if the CPU is fine with handling the animation workload, with little to no delay */
+      transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    }
+
+    #flyoutMenu h2 a {
+      color: #333;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+
+    #flyoutMenu h2 a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
+  <div id="flyoutMenu">
+    <h2><a href="#">Home</a></h2>
+    <h2><a href="#">About</a></h2>
+    <h2><a href="#">Contact</a></h2>
+    <h2><a href="#">Search</a></h2>
+  </div>
+
   <button id="roundButton"></button>
   <div id="container">
     <p>Can you spot the item that doesn't belong?</p>
